@@ -57,7 +57,7 @@ class TaskStatusView(APIView):
 
         results = []
         if state == "SUCCESS" or job.status == "SUCCESS":
-            for m in job.mockups.order_by("-created_at"):
+            for m in job.mockups.order_by("-created_at").select_related("job"):
                 results.append(
                     {
                         "image_url": (

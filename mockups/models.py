@@ -38,12 +38,21 @@ class Mockup(models.Model):
     )
 
     job = models.ForeignKey(MockupJob, on_delete=models.CASCADE, related_name="mockups")
-    text = models.TextField()
-    font = models.CharField(max_length=100, blank=True, null=True)
-    text_color = models.CharField(max_length=7, default="#000000")
     shirt_color = models.CharField(max_length=10, choices=COLOR_CHOICES)
     image = models.ImageField(upload_to="mockups/")
     created_at = models.DateTimeField(auto_now_add=True)
+
+    @property
+    def text(self) -> str:
+        return self.job.text
+
+    @property
+    def font(self) -> str | None:
+        return self.job.font
+
+    @property
+    def text_color(self) -> str:
+        return self.job.text_color
 
     def __str__(self) -> str:
         return f"Mockup {self.id} - {self.shirt_color}"

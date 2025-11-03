@@ -1,5 +1,4 @@
 import os
-from io import BytesIO
 from typing import List, Tuple
 
 from celery import shared_task
@@ -104,9 +103,6 @@ def generate_mockups_task(self, job_id: int):
                 rel_path = os.path.join("mockups", filename)
                 Mockup.objects.create(
                     job=job,
-                    text=job.text,
-                    font=job.font,
-                    text_color=job.text_color,
                     shirt_color=color,
                     image=rel_path,
                 )
