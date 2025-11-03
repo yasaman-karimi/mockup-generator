@@ -112,6 +112,8 @@ def generate_mockups_task(self, job_id: int):
         return {"job_id": job.id, "count": len(colors)}
 
     except Exception as exc:
+        # we shouldn't capture all exceptions here blindly
+        # as that can shadow real issues as well but let it be for testing
         job.status = "FAILURE"
         job.save(update_fields=["status"])
         raise exc
