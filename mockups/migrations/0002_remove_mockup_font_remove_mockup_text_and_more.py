@@ -6,20 +6,20 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('mockups', '0001_initial'),
+        ("mockups", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='mockup',
-            name='font',
+            model_name="mockup",
+            name="font",
         ),
         migrations.RemoveField(
-            model_name='mockup',
-            name='text',
+            model_name="mockup",
+            name="text",
         ),
         migrations.RemoveField(
-            model_name='mockup',
-            name='text_color',
+            model_name="mockup",
+            name="text_color",
         ),
     ]

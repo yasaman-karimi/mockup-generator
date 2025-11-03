@@ -13,4 +13,3 @@ class MockupAdmin(admin.ModelAdmin):
     list_display = ("id", "job", "shirt_color", "created_at")
     list_filter = ("shirt_color",)
     search_fields = ("text",)
-
